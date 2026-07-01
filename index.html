@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Brew & Shots — Luxury Coffee Bar</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- CUSTOM CURSOR -->
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-follower" id="cursorFollower"></div>
+
+  <!-- LOADER -->
+  <div class="loader" id="loader">
+    <div class="loader-inner">
+      <div class="loader-logo">
+        <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="40" cy="40" r="38" stroke="#C9A84C" stroke-width="1.5"/>
+          <path d="M25 50 Q30 30 40 28 Q50 26 55 50" stroke="#C9A84C" stroke-width="1.5" fill="none"/>
+          <path d="M30 50 Q35 38 40 36 Q45 34 50 50" stroke="#C9A84C" stroke-width="1" fill="none" opacity="0.5"/>
+          <ellipse cx="40" cy="52" rx="16" ry="4" stroke="#C9A84C" stroke-width="1.5" fill="none"/>
+          <path d="M56 44 Q62 40 60 36 Q58 32 54 36" stroke="#C9A84C" stroke-width="1.2" fill="none"/>
+        </svg>
+      </div>
+      <div class="loader-text">BREW <span>&</span> SHOTS</div>
+      <div class="loader-bar"><div class="loader-progress" id="loaderProgress"></div></div>
+    </div>
+  </div>
+
+  <!-- SCROLL PROGRESS -->
+  <div class="scroll-progress" id="scrollProgress"></div>
+
+  <!-- NAVBAR -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="nav-logo">
+        <svg viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg" class="logo-svg">
+          <circle cx="25" cy="25" r="23" stroke="#C9A84C" stroke-width="1"/>
+          <path d="M15 32 Q18 20 25 18 Q32 16 35 32" stroke="#C9A84C" stroke-width="1.5" fill="none"/>
+          <ellipse cx="25" cy="34" rx="11" ry="3" stroke="#C9A84C" stroke-width="1.2" fill="none"/>
+          <path d="M36 28 Q40 25 39 22 Q38 19 35 22" stroke="#C9A84C" stroke-width="1" fill="none"/>
+        </svg>
+        <span class="logo-text">Brew <em>&</em> Shots</span>
+      </a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html" class="nav-link active">Home</a></li>
+        <li><a href="about.html" class="nav-link">About</a></li>
+        <li><a href="products.html" class="nav-link">Menu</a></li>
+        <li><a href="index.html#watch-area" class="nav-link">Watch Area</a></li>
+        <li><a href="contact.html" class="nav-link">Contact</a></li>
+      </ul>
+      <div class="nav-actions">
+        <button class="cart-btn" id="cartBtn" onclick="toggleCart()">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/>
+            <line x1="3" y1="6" x2="21" y2="6"/>
+            <path d="M16 10a4 4 0 01-8 0"/>
+          </svg>
+          <span class="cart-count" id="cartCount">0</span>
+        </button>
+        <button class="hamburger" id="hamburger" onclick="toggleMenu()">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO SECTION -->
+  <section class="hero" id="home">
+    <div class="hero-bg">
+      <div class="hero-overlay"></div>
+      <div class="hero-particles" id="heroParticles"></div>
+      <img src="https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?w=1920&q=80" alt="Luxury Coffee Bar" class="hero-img" id="heroImg1" />
+      <img src="https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?w=1920&q=80" alt="Bar Night" class="hero-img" id="heroImg2" />
+      <img src="https://images.unsplash.com/photo-1445116572660-236099ec97a0?w=1920&q=80" alt="Coffee Shop" class="hero-img" id="heroImg3" />
+    </div>
+    <div class="hero-content">
+      <div class="hero-badge reveal-up">Premium Experience Since 2018</div>
+      <h1 class="hero-title reveal-up">
+        <span class="line">Where Coffee</span>
+        <span class="line italic">Meets the Night</span>
+      </h1>
+      <p class="hero-subtitle reveal-up">
+        <span id="typingText"></span><span class="typing-cursor">|</span>
+      </p>
+      <div class="hero-cta reveal-up">
+        <a href="products.html" class="btn btn-gold">Explore Menu</a>
+        <a href="contact.html#booking" class="btn btn-outline">Book a Table</a>
+        <a href="products.html" class="btn btn-ghost">Order Now</a>
+      </div>
+      <div class="hero-stats reveal-up">
+        <div class="stat"><span class="stat-num">120+</span><span class="stat-label">Menu Items</span></div>
+        <div class="stat-divider"></div>
+        <div class="stat"><span class="stat-num">4.9★</span><span class="stat-label">Rating</span></div>
+        <div class="stat-divider"></div>
+        <div class="stat"><span class="stat-num">50K+</span><span class="stat-label">Happy Guests</span></div>
+      </div>
+    </div>
+    <div class="hero-scroll-hint">
+      <span>Scroll Down</span>
+      <div class="scroll-line"></div>
+    </div>
+    <div class="hero-slider-dots" id="sliderDots">
+      <button class="dot active" onclick="goToSlide(0)"></button>
+      <button class="dot" onclick="goToSlide(1)"></button>
+      <button class="dot" onclick="goToSlide(2)"></button>
+    </div>
+  </section>
+
+  <!-- MARQUEE STRIP -->
+  <div class="marquee-strip">
+    <div class="marquee-track">
+      <span>☕ Premium Coffee</span><span>🥃 Craft Cocktails</span><span>🍕 Gourmet Snacks</span>
+      <span>📺 Live Sports</span><span>🎵 Live Music</span><span>🌙 Open Till Late</span>
+      <span>☕ Premium Coffee</span><span>🥃 Craft Cocktails</span><span>🍕 Gourmet Snacks</span>
+      <span>📺 Live Sports</span><span>🎵 Live Music</span><span>🌙 Open Till Late</span>
+    </div>
+  </div>
+
+  <!-- FEATURED PRODUCTS -->
+  <section class="section featured-section" id="featured">
+    <div class="container">
+      <div class="section-header reveal-up">
+        <span class="section-tag">Our Specialties</span>
+        <h2 class="section-title">Crafted With <em>Passion</em></h2>
+        <p class="section-desc">From the first sip of morning espresso to the last cocktail of the night — every creation is a masterpiece.</p>
+      </div>
+
+      <!-- Category Tabs -->
+      <div class="category-tabs reveal-up">
+        <button class="tab-btn active" data-cat="coffee">☕ Coffee</button>
+        <button class="tab-btn" data-cat="bar">🥃 Bar Shots</button>
+        <button class="tab-btn" data-cat="snacks">🍟 Snacks</button>
+        <button class="tab-btn" data-cat="desserts">🍰 Desserts</button>
+      </div>
+
+      <div class="products-grid" id="featuredGrid">
+        <!-- Populated by JS -->
+      </div>
+
+      <div class="section-cta reveal-up">
+        <a href="products.html" class="btn btn-gold">View Full Menu</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE SECTION -->
+  <section class="section experience-section">
+    <div class="experience-bg">
+      <img src="https://images.unsplash.com/photo-1559329007-40df8a9345d8?w=1920&q=80" alt="Bar Experience" />
+      <div class="experience-overlay"></div>
+    </div>
+    <div class="container">
+      <div class="experience-grid">
+        <div class="experience-text reveal-left">
+          <span class="section-tag">The Experience</span>
+          <h2 class="section-title">More Than Just <em>a Drink</em></h2>
+          <p>Step into a world where premium coffee blends with the electric energy of a luxury bar. Our space is designed for those who appreciate the finer things — whether it's a quiet morning espresso or a vibrant cocktail night.</p>
+          <ul class="experience-list">
+            <li><span class="check">✦</span> Hand-selected single-origin coffee beans</li>
+            <li><span class="check">✦</span> Award-winning mixologists on staff</li>
+            <li><span class="check">✦</span> Curated live music every weekend</li>
+            <li><span class="check">✦</span> Private event & watch party bookings</li>
+          </ul>
+          <a href="about.html" class="btn btn-gold">Our Story</a>
+        </div>
+        <div class="experience-cards reveal-right">
+          <div class="exp-card glass">
+            <div class="exp-icon">☕</div>
+            <h3>Coffee Artistry</h3>
+            <p>Latte art, cold brews, and specialty blends crafted by certified baristas.</p>
+          </div>
+          <div class="exp-card glass">
+            <div class="exp-icon">🥃</div>
+            <h3>Premium Bar</h3>
+            <p>Curated spirits, signature cocktails, and rare whiskeys from around the world.</p>
+          </div>
+          <div class="exp-card glass">
+            <div class="exp-icon">📺</div>
+            <h3>Watch Parties</h3>
+            <p>Giant screens, surround sound, and the best seats for every big match.</p>
+          </div>
+          <div class="exp-card glass">
+            <div class="exp-icon">🍽️</div>
+            <h3>Gourmet Kitchen</h3>
+            <p>Chef-crafted snacks and meals to complement every drink on the menu.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WATCH AREA SECTION -->
+  <section class="section watch-section" id="watch-area">
+    <div class="container">
+      <div class="section-header reveal-up">
+        <span class="section-tag">Live Sports Zone</span>
+        <h2 class="section-title">Watch. Cheer. <em>Celebrate.</em></h2>
+        <p class="section-desc">The ultimate sports viewing experience — massive screens, premium seating, and your favourite drinks delivered to your seat.</p>
+      </div>
+      <div class="watch-grid">
+        <div class="watch-main reveal-left">
+          <div class="watch-img-wrap">
+            <img src="https://images.unsplash.com/photo-1574629810360-7efbbe195018?w=900&q=80" alt="Watch Party" />
+            <div class="watch-overlay">
+              <div class="live-badge">🔴 LIVE NOW</div>
+              <div class="watch-overlay-text">
+                <h3>IPL Season 2025</h3>
+                <p>Every match. Every moment. Right here.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="watch-info reveal-right">
+          <div class="watch-feature">
+            <div class="wf-icon">📺</div>
+            <div>
+              <h4>4K Giant Screens</h4>
+              <p>Multiple 120-inch 4K screens with Dolby Atmos surround sound for the ultimate immersive experience.</p>
+            </div>
+          </div>
+          <div class="watch-feature">
+            <div class="wf-icon">🛋️</div>
+            <div>
+              <h4>Premium Seating</h4>
+              <p>Plush lounge chairs, VIP booths, and bar stools — choose your perfect viewing spot.</p>
+            </div>
+          </div>
+          <div class="watch-feature">
+            <div class="wf-icon">🍺</div>
+            <div>
+              <h4>Table Service</h4>
+              <p>Order food and drinks directly from your seat. Never miss a moment of the action.</p>
+            </div>
+          </div>
+          <div class="watch-feature">
+            <div class="wf-icon">🏆</div>
+            <div>
+              <h4>All Major Sports</h4>
+              <p>Cricket, Football, F1, Tennis, Boxing — we screen every major sporting event live.</p>
+            </div>
+          </div>
+          <div class="watch-seats">
+            <div class="seat-card glass">
+              <h4>Standard Zone</h4>
+              <p>Up to 4 guests</p>
+              <span class="seat-price">₹499 <small>/booking</small></span>
+              <a href="contact.html#booking" class="btn btn-sm btn-gold">Reserve</a>
+            </div>
+            <div class="seat-card glass featured-seat">
+              <div class="popular-tag">Popular</div>
+              <h4>VIP Booth</h4>
+              <p>Up to 8 guests</p>
+              <span class="seat-price">₹1,299 <small>/booking</small></span>
+              <a href="contact.html#booking" class="btn btn-sm btn-gold">Reserve</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section class="section testimonials-section">
+    <div class="container">
+      <div class="section-header reveal-up">
+        <span class="section-tag">Guest Reviews</span>
+        <h2 class="section-title">What Our <em>Guests Say</em></h2>
+      </div>
+      <div class="testimonials-track" id="testimonialsTrack">
+        <div class="testimonial-card glass">
+          <div class="stars">★★★★★</div>
+          <p>"The best coffee I've ever had in the city. The ambiance is absolutely stunning — feels like a luxury hotel bar. The watch party for the World Cup was unforgettable!"</p>
+          <div class="reviewer"><img src="https://i.pravatar.cc/60?img=11" alt="Reviewer"/><div><strong>Arjun Mehta</strong><span>Regular Guest</span></div></div>
+        </div>
+        <div class="testimonial-card glass">
+          <div class="stars">★★★★★</div>
+          <p>"Brew & Shots is our go-to spot every weekend. The cocktails are crafted to perfection and the food is absolutely delicious. The neon bar area has such a vibe!"</p>
+          <div class="reviewer"><img src="https://i.pravatar.cc/60?img=5" alt="Reviewer"/><div><strong>Priya Sharma</strong><span>Food Blogger</span></div></div>
+        </div>
+        <div class="testimonial-card glass">
+          <div class="stars">★★★★★</div>
+          <p>"Booked the VIP booth for IPL finals — absolutely worth every rupee. The service was impeccable, drinks were flowing, and the screen quality was cinema-level!"</p>
+          <div class="reviewer"><img src="https://i.pravatar.cc/60?img=15" alt="Reviewer"/><div><strong>Rahul Verma</strong><span>Sports Enthusiast</span></div></div>
+        </div>
+        <div class="testimonial-card glass">
+          <div class="stars">★★★★★</div>
+          <p>"The cold brew here is unlike anything else. I come here every morning before work. The staff remembers my order and the atmosphere is always perfect."</p>
+          <div class="reviewer"><img src="https://i.pravatar.cc/60?img=9" alt="Reviewer"/><div><strong>Sneha Patel</strong><span>Coffee Connoisseur</span></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GALLERY STRIP -->
+  <section class="gallery-strip">
+    <div class="gallery-track">
+      <div class="gallery-item"><img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=400&q=80" alt="Coffee"/></div>
+      <div class="gallery-item"><img src="https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?w=400&q=80" alt="Bar"/></div>
+      <div class="gallery-item"><img src="https://images.unsplash.com/photo-1551024709-8f23befc6f87?w=400&q=80" alt="Cocktail"/></div>
+      <div class="gallery-item"><img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=400&q=80" alt="Burger"/></div>
+      <div class="gallery-item"><img src="https://images.unsplash.com/photo-1574629810360-7efbbe195018?w=400&q=80" alt="Watch Party"/></div>
+      <div class="gallery-item"><img src="https://images.unsplash.com/photo-1559329007-40df8a9345d8?w=400&q=80" alt="Interior"/></div>
+      <div class="gallery-item"><img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=400&q=80" alt="Latte"/></div>
+      <div class="gallery-item"><img src="https://images.unsplash.com/photo-1571091718767-18b5b1457add?w=400&q=80" alt="Pizza"/></div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-top">
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-brand">
+            <a href="index.html" class="nav-logo footer-logo">
+              <svg viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg" class="logo-svg">
+                <circle cx="25" cy="25" r="23" stroke="#C9A84C" stroke-width="1"/>
+                <path d="M15 32 Q18 20 25 18 Q32 16 35 32" stroke="#C9A84C" stroke-width="1.5" fill="none"/>
+                <ellipse cx="25" cy="34" rx="11" ry="3" stroke="#C9A84C" stroke-width="1.2" fill="none"/>
+                <path d="M36 28 Q40 25 39 22 Q38 19 35 22" stroke="#C9A84C" stroke-width="1" fill="none"/>
+              </svg>
+              <span class="logo-text">Brew <em>&</em> Shots</span>
+            </a>
+            <p>Where premium coffee meets the electric energy of a luxury bar. Your perfect escape, day or night.</p>
+            <div class="social-icons">
+              <a href="#" class="social-icon" title="Instagram">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg>
+              </a>
+              <a href="#" class="social-icon" title="Facebook">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+              </a>
+              <a href="#" class="social-icon" title="Twitter">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"/></svg>
+              </a>
+              <a href="#" class="social-icon" title="YouTube">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22.54 6.42a2.78 2.78 0 00-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 00-1.95 1.96A29 29 0 001 12a29 29 0 00.46 5.58A2.78 2.78 0 003.41 19.6C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 001.95-1.95A29 29 0 0023 12a29 29 0 00-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="currentColor" stroke="none"/></svg>
+              </a>
+            </div>
+          </div>
+          <div class="footer-col">
+            <h4>Quick Links</h4>
+            <ul>
+              <li><a href="index.html">Home</a></li>
+              <li><a href="about.html">About Us</a></li>
+              <li><a href="products.html">Our Menu</a></li>
+              <li><a href="index.html#watch-area">Watch Area</a></li>
+              <li><a href="contact.html">Contact</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>Our Menu</h4>
+            <ul>
+              <li><a href="products.html?cat=coffee">Coffee & Brews</a></li>
+              <li><a href="products.html?cat=bar">Bar & Cocktails</a></li>
+              <li><a href="products.html?cat=snacks">Snacks & Bites</a></li>
+              <li><a href="products.html?cat=desserts">Desserts</a></li>
+              <li><a href="products.html?cat=drinks">Special Drinks</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>Contact & Hours</h4>
+            <ul class="contact-list">
+              <li>📍 42, MG Road, Bengaluru, Karnataka 560001</li>
+              <li>📞 +91 98765 43210</li>
+              <li>✉️ hello@brewandshots.in</li>
+            </ul>
+            <div class="hours">
+              <div class="hour-row"><span>Mon – Thu</span><span>8 AM – 1 AM</span></div>
+              <div class="hour-row"><span>Fri – Sat</span><span>8 AM – 3 AM</span></div>
+              <div class="hour-row"><span>Sunday</span><span>10 AM – 12 AM</span></div>
+            </div>
+          </div>
+          <div class="footer-col">
+            <h4>Newsletter</h4>
+            <p>Get exclusive offers, event updates, and new menu launches.</p>
+            <form class="newsletter-form" onsubmit="subscribeNewsletter(event)">
+              <input type="email" placeholder="Your email address" required />
+              <button type="submit" class="btn btn-gold btn-sm">Subscribe</button>
+            </form>
+            <div class="footer-gallery">
+              <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=100&q=70" alt=""/>
+              <img src="https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?w=100&q=70" alt=""/>
+              <img src="https://images.unsplash.com/photo-1551024709-8f23befc6f87?w=100&q=70" alt=""/>
+              <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=100&q=70" alt=""/>
+              <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=100&q=70" alt=""/>
+              <img src="https://images.unsplash.com/photo-1571091718767-18b5b1457add?w=100&q=70" alt=""/>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="container">
+        <p>© 2025 Brew & Shots. All rights reserved. Crafted with ☕ & 🥃 in Bengaluru.</p>
+        <div class="footer-bottom-links">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+          <a href="#">Refund Policy</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- CART SIDEBAR -->
+  <div class="cart-overlay" id="cartOverlay" onclick="toggleCart()"></div>
+  <div class="cart-sidebar" id="cartSidebar">
+    <div class="cart-header">
+      <h3>Your Order</h3>
+      <button class="cart-close" onclick="toggleCart()">✕</button>
+    </div>
+    <div class="cart-items" id="cartItems">
+      <div class="cart-empty" id="cartEmpty">
+        <div class="empty-icon">🛒</div>
+        <p>Your cart is empty</p>
+        <a href="products.html" class="btn btn-gold btn-sm" onclick="toggleCart()">Browse Menu</a>
+      </div>
+    </div>
+    <div class="cart-footer" id="cartFooter" style="display:none">
+      <div class="cart-summary">
+        <div class="summary-row"><span>Subtotal</span><span id="cartSubtotal">₹0</span></div>
+        <div class="summary-row"><span>Taxes (5%)</span><span id="cartTax">₹0</span></div>
+        <div class="summary-row total"><span>Total</span><span id="cartTotal">₹0</span></div>
+      </div>
+      <button class="btn btn-gold btn-full" onclick="openCheckout()">Proceed to Checkout</button>
+      <button class="btn btn-outline btn-full" onclick="clearCart()">Clear Cart</button>
+    </div>
+  </div>
+
+  <!-- CHECKOUT MODAL -->
+  <div class="modal-overlay" id="checkoutOverlay">
+    <div class="modal checkout-modal glass">
+      <button class="modal-close" onclick="closeCheckout()">✕</button>
+      <h2>Complete Your Order</h2>
+      <p class="modal-subtitle">Fill in your details and we'll get it ready for you.</p>
+      <form class="checkout-form" id="checkoutForm" onsubmit="submitOrder(event)">
+        <div class="form-row">
+          <div class="form-group">
+            <input type="text" id="fullName" placeholder=" " required />
+            <label>Full Name *</label>
+          </div>
+          <div class="form-group">
+            <input type="tel" id="mobile" placeholder=" " required pattern="[0-9]{10}" />
+            <label>Mobile Number *</label>
+          </div>
+        </div>
+        <div class="form-group">
+          <input type="email" id="email" placeholder=" " required />
+          <label>Email Address *</label>
+        </div>
+        <div class="form-group">
+          <textarea id="address" placeholder=" " rows="2" required></textarea>
+          <label>Delivery Address *</label>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <input type="date" id="bookingDate" placeholder=" " required />
+            <label>Date *</label>
+          </div>
+          <div class="form-group">
+            <input type="time" id="bookingTime" placeholder=" " required />
+            <label>Time *</label>
+          </div>
+        </div>
+        <div class="form-group">
+          <textarea id="specialMessage" placeholder=" " rows="2"></textarea>
+          <label>Special Instructions</label>
+        </div>
+        <div class="order-summary-box glass">
+          <h4>Order Summary</h4>
+          <div id="checkoutItems"></div>
+          <div class="summary-total">Total: <strong id="checkoutTotal">₹0</strong></div>
+        </div>
+        <button type="submit" class="btn btn-gold btn-full" id="submitBtn">
+          <span>Place Order</span>
+          <div class="btn-loader" style="display:none"></div>
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- SUCCESS TOAST -->
+  <div class="toast" id="toast"></div>
+
+  <!-- BACK TO TOP -->
+  <button class="back-to-top" id="backToTop" onclick="scrollToTop()">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="18 15 12 9 6 15"/></svg>
+  </button>
+
+  <script src="script.js"></script>
+</body>
+</html>

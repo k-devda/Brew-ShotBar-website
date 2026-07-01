@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About Us — Brew & Shots</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-follower" id="cursorFollower"></div>
+
+  <!-- LOADER -->
+  <div class="loader" id="loader">
+    <div class="loader-inner">
+      <div class="loader-logo">
+        <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="40" cy="40" r="38" stroke="#C9A84C" stroke-width="1.5"/>
+          <path d="M25 50 Q30 30 40 28 Q50 26 55 50" stroke="#C9A84C" stroke-width="1.5" fill="none"/>
+          <ellipse cx="40" cy="52" rx="16" ry="4" stroke="#C9A84C" stroke-width="1.5" fill="none"/>
+          <path d="M56 44 Q62 40 60 36 Q58 32 54 36" stroke="#C9A84C" stroke-width="1.2" fill="none"/>
+        </svg>
+      </div>
+      <div class="loader-text">BREW <span>&</span> SHOTS</div>
+      <div class="loader-bar"><div class="loader-progress" id="loaderProgress"></div></div>
+    </div>
+  </div>
+
+  <div class="scroll-progress" id="scrollProgress"></div>
+
+  <!-- NAVBAR -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="nav-logo">
+        <svg viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg" class="logo-svg">
+          <circle cx="25" cy="25" r="23" stroke="#C9A84C" stroke-width="1"/>
+          <path d="M15 32 Q18 20 25 18 Q32 16 35 32" stroke="#C9A84C" stroke-width="1.5" fill="none"/>
+          <ellipse cx="25" cy="34" rx="11" ry="3" stroke="#C9A84C" stroke-width="1.2" fill="none"/>
+          <path d="M36 28 Q40 25 39 22 Q38 19 35 22" stroke="#C9A84C" stroke-width="1" fill="none"/>
+        </svg>
+        <span class="logo-text">Brew <em>&</em> Shots</span>
+      </a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html" class="nav-link">Home</a></li>
+        <li><a href="about.html" class="nav-link active">About</a></li>
+        <li><a href="products.html" class="nav-link">Menu</a></li>
+        <li><a href="index.html#watch-area" class="nav-link">Watch Area</a></li>
+        <li><a href="contact.html" class="nav-link">Contact</a></li>
+      </ul>
+      <div class="nav-actions">
+        <button class="cart-btn" id="cartBtn" onclick="toggleCart()">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/>
+            <line x1="3" y1="6" x2="21" y2="6"/>
+            <path d="M16 10a4 4 0 01-8 0"/>
+          </svg>
+          <span class="cart-count" id="cartCount">0</span>
+        </button>
+        <button class="hamburger" id="hamburger" onclick="toggleMenu()">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- PAGE HERO -->
+  <section class="page-hero">
+    <div class="page-hero-bg">
+      <img src="https://images.unsplash.com/photo-1559329007-40df8a9345d8?w=1920&q=80" alt="About Us" />
+      <div class="page-hero-overlay"></div>
+    </div>
+    <div class="page-hero-content">
+      <span class="section-tag reveal-up">Our Story</span>
+      <h1 class="page-hero-title reveal-up">About <em>Brew & Shots</em></h1>
+      <p class="reveal-up">A journey from a single espresso machine to Bengaluru's most iconic coffee bar.</p>
+    </div>
+  </section>
+
+  <!-- STORY SECTION -->
+  <section class="section story-section">
+    <div class="container">
+      <div class="story-grid">
+        <div class="story-images reveal-left">
+          <div class="story-img-main">
+            <img src="https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?w=700&q=80" alt="Our Story" />
+          </div>
+          <div class="story-img-accent glass">
+            <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=400&q=80" alt="Coffee" />
+            <div class="story-badge">
+              <span class="badge-num">7+</span>
+              <span class="badge-text">Years of Excellence</span>
+            </div>
+          </div>
+        </div>
+        <div class="story-text reveal-right">
+          <span class="section-tag">Who We Are</span>
+          <h2 class="section-title">Born From a <em>Passion</em> for Perfection</h2>
+          <p>Brew & Shots was born in 2018 from a simple but powerful idea: what if the warmth of a great coffee shop could coexist with the electric energy of a premium bar? Our founders, Aryan and Meera, spent years travelling the world — from the espresso bars of Milan to the cocktail lounges of Tokyo — before bringing their vision to life in the heart of Bengaluru.</p>
+          <p>What started as a 20-seat café on MG Road has grown into a 200-seat luxury destination, complete with a full bar, gourmet kitchen, and the city's most talked-about sports viewing lounge. Every detail — from the hand-selected coffee beans to the custom-designed furniture — reflects our obsession with quality.</p>
+          <div class="story-values">
+            <div class="value-item">
+              <span class="value-icon">🌱</span>
+              <div>
+                <h4>Sustainably Sourced</h4>
+                <p>Direct trade with farmers in Coorg, Chikmagalur, and Wayanad.</p>
+              </div>
+            </div>
+            <div class="value-item">
+              <span class="value-icon">🏆</span>
+              <div>
+                <h4>Award Winning</h4>
+                <p>Best Coffee Bar in Bengaluru — Times Food Awards 2023 & 2024.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- COUNTERS -->
+  <section class="counters-section">
+    <div class="counters-bg">
+      <img src="https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?w=1920&q=80" alt="Bar" />
+      <div class="counters-overlay"></div>
+    </div>
+    <div class="container">
+      <div class="counters-grid">
+        <div class="counter-item reveal-up">
+          <span class="counter-num" data-target="50000">0</span>
+          <span class="counter-plus">+</span>
+          <span class="counter-label">Happy Guests</span>
+        </div>
+        <div class="counter-item reveal-up">
+          <span class="counter-num" data-target="120">0</span>
+          <span class="counter-plus">+</span>
+          <span class="counter-label">Menu Items</span>
+        </div>
+        <div class="counter-item reveal-up">
+          <span class="counter-num" data-target="7">0</span>
+          <span class="counter-plus"></span>
+          <span class="counter-label">Years of Excellence</span>
+        </div>
+        <div class="counter-item reveal-up">
+          <span class="counter-num" data-target="25">0</span>
+          <span class="counter-plus">+</span>
+          <span class="counter-label">Expert Staff</span>
+        </div>
+        <div class="counter-item reveal-up">
+          <span class="counter-num" data-target="4">0</span>
+          <span class="counter-plus"></span>
+          <span class="counter-label">Awards Won</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MISSION & VISION -->
+  <section class="section mv-section">
+    <div class="container">
+      <div class="section-header reveal-up">
+        <span class="section-tag">Our Purpose</span>
+        <h2 class="section-title">Mission & <em>Vision</em></h2>
+      </div>
+      <div class="mv-grid">
+        <div class="mv-card glass reveal-up">
+          <div class="mv-icon">🎯</div>
+          <h3>Our Mission</h3>
+          <p>To create a space where every guest feels like a VIP — where the quality of every cup, every cocktail, and every bite reflects our unwavering commitment to excellence. We exist to turn ordinary moments into extraordinary memories.</p>
+        </div>
+        <div class="mv-card glass reveal-up">
+          <div class="mv-icon">🔭</div>
+          <h3>Our Vision</h3>
+          <p>To become India's most beloved luxury coffee bar brand — a destination that defines the intersection of café culture and nightlife. We envision a future where Brew & Shots is synonymous with premium experiences across every major Indian city.</p>
+        </div>
+        <div class="mv-card glass reveal-up">
+          <div class="mv-icon">💎</div>
+          <h3>Our Values</h3>
+          <p>Quality without compromise. Hospitality without pretension. Sustainability without sacrifice. Innovation without losing soul. These aren't just words — they're the principles that guide every decision we make, from sourcing to service.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TIMELINE -->
+  <section class="section timeline-section">
+    <div class="container">
+      <div class="section-header reveal-up">
+        <span class="section-tag">Our Journey</span>
+        <h2 class="section-title">The <em>Brew & Shots</em> Story</h2>
+      </div>
+      <div class="timeline">
+        <div class="timeline-item reveal-left">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content glass">
+            <span class="timeline-year">2018</span>
+            <h4>The Beginning</h4>
+            <p>Aryan and Meera open a 20-seat café on MG Road with just 3 coffee machines and a dream. The first week sells out every day.</p>
+          </div>
+        </div>
+        <div class="timeline-item right reveal-right">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content glass">
+            <span class="timeline-year">2019</span>
+            <h4>The Bar is Born</h4>
+            <p>We expand to the adjacent space and launch our premium bar section. The concept of "coffee meets cocktails" takes Bengaluru by storm.</p>
+          </div>
+        </div>
+        <div class="timeline-item reveal-left">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content glass">
+            <span class="timeline-year">2020</span>
+            <h4>Surviving & Thriving</h4>
+            <p>Despite the pandemic, we launch our delivery service and online ordering system. Our loyal community keeps us alive through the toughest year.</p>
+          </div>
+        </div>
+        <div class="timeline-item right reveal-right">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content glass">
+            <span class="timeline-year">2021</span>
+            <h4>The Watch Lounge</h4>
+            <p>We install our first giant screen and launch the Watch Party concept. The IPL season brings in record crowds and puts us on the map.</p>
+          </div>
+        </div>
+        <div class="timeline-item reveal-left">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content glass">
+            <span class="timeline-year">2022</span>
+            <h4>Full Renovation</h4>
+            <p>Complete redesign of the space — 200 seats, 4 giant screens, a dedicated cocktail bar, and a gourmet kitchen. The new Brew & Shots is born.</p>
+          </div>
+        </div>
+        <div class="timeline-item right reveal-right">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content glass">
+            <span class="timeline-year">2023</span>
+            <h4>Award Season</h4>
+            <p>Times Food Award for Best Coffee Bar. Zomato's #1 rated café in Bengaluru. Featured in Condé Nast Traveller India's "Best Bars" list.</p>
+          </div>
+        </div>
+        <div class="timeline-item reveal-left">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content glass">
+            <span class="timeline-year">2025</span>
+            <h4>The Future</h4>
+            <p>Expanding to Mumbai and Hyderabad. Launching our own coffee bean brand. Building the most premium sports viewing experience in India.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TEAM SECTION -->
+  <section class="section team-section">
+    <div class="container">
+      <div class="section-header reveal-up">
+        <span class="section-tag">The People</span>
+        <h2 class="section-title">Meet Our <em>Team</em></h2>
+        <p class="section-desc">The passionate individuals who make every visit to Brew & Shots an unforgettable experience.</p>
+      </div>
+      <div class="team-grid">
+        <div class="team-card glass reveal-up">
+          <div class="team-img">
+            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&q=80" alt="Aryan Kapoor" />
+            <div class="team-overlay">
+              <div class="team-social">
+                <a href="#">in</a>
+                <a href="#">ig</a>
+              </div>
+            </div>
+          </div>
+          <div class="team-info">
+            <h4>Aryan Kapoor</h4>
+            <span>Co-Founder & CEO</span>
+            <p>Former barista champion turned entrepreneur. Aryan's vision for luxury coffee culture drives everything we do.</p>
+          </div>
+        </div>
+        <div class="team-card glass reveal-up">
+          <div class="team-img">
+            <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&q=80" alt="Meera Nair" />
+            <div class="team-overlay">
+              <div class="team-social">
+                <a href="#">in</a>
+                <a href="#">ig</a>
+              </div>
+            </div>
+          </div>
+          <div class="team-info">
+            <h4>Meera Nair</h4>
+            <span>Co-Founder & Creative Director</span>
+            <p>Interior designer and brand strategist. Meera crafted every visual element of the Brew & Shots experience.</p>
+          </div>
+        </div>
+        <div class="team-card glass reveal-up">
+          <div class="team-img">
+            <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&q=80" alt="Rohan Desai" />
+            <div class="team-overlay">
+              <div class="team-social">
+                <a href="#">in</a>
+                <a href="#">ig</a>
+              </div>
+            </div>
+          </div>
+          <div class="team-info">
+            <h4>Rohan Desai</h4>
+            <span>Head Mixologist</span>
+            <p>Award-winning bartender with 12 years of experience. Rohan's cocktail menu has been featured in national publications.</p>
+          </div>
+        </div>
+        <div class="team-card glass reveal-up">
+          <div class="team-img">
+            <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&q=80" alt="Priya Iyer" />
+            <div class="team-overlay">
+              <div class="team-social">
+                <a href="#">in</a>
+                <a href="#">ig</a>
+              </div>
+            </div>
+          </div>
+          <div class="team-info">
+            <h4>Priya Iyer</h4>
+            <span>Executive Chef</span>
+            <p>Trained at Le Cordon Bleu, Priya brings Michelin-star sensibility to our gourmet snacks and food menu.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GALLERY -->
+  <section class="section gallery-section">
+    <div class="container">
+      <div class="section-header reveal-up">
+        <span class="section-tag">Our Space</span>
+        <h2 class="section-title">Inside <em>Brew & Shots</em></h2>
+      </div>
+      <div class="about-gallery">
+        <div class="ag-item ag-large reveal-up">
+          <img src="https://images.unsplash.com/photo-1559329007-40df8a9345d8?w=800&q=80" alt="Interior" />
+          <div class="ag-overlay"><span>The Main Hall</span></div>
+        </div>
+        <div class="ag-item reveal-up">
+          <img src="https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?w=500&q=80" alt="Bar" />
+          <div class="ag-overlay"><span>The Bar</span></div>
+        </div>
+        <div class="ag-item reveal-up">
+          <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=500&q=80" alt="Coffee Station" />
+          <div class="ag-overlay"><span>Coffee Station</span></div>
+        </div>
+        <div class="ag-item reveal-up">
+          <img src="https://images.unsplash.com/photo-1574629810360-7efbbe195018?w=500&q=80" alt="Watch Lounge" />
+          <div class="ag-overlay"><span>Watch Lounge</span></div>
+        </div>
+        <div class="ag-item reveal-up">
+          <img src="https://images.unsplash.com/photo-1551024709-8f23befc6f87?w=500&q=80" alt="Cocktails" />
+          <div class="ag-overlay"><span>Cocktail Bar</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-top">
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-brand">
+            <a href="index.html" class="nav-logo footer-logo">
+              <svg viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg" class="logo-svg">
+                <circle cx="25" cy="25" r="23" stroke="#C9A84C" stroke-width="1"/>
+                <path d="M15 32 Q18 20 25 18 Q32 16 35 32" stroke="#C9A84C" stroke-width="1.5" fill="none"/>
+                <ellipse cx="25" cy="34" rx="11" ry="3" stroke="#C9A84C" stroke-width="1.2" fill="none"/>
+                <path d="M36 28 Q40 25 39 22 Q38 19 35 22" stroke="#C9A84C" stroke-width="1" fill="none"/>
+              </svg>
+              <span class="logo-text">Brew <em>&</em> Shots</span>
+            </a>
+            <p>Where premium coffee meets the electric energy of a luxury bar. Your perfect escape, day or night.</p>
+            <div class="social-icons">
+              <a href="#" class="social-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg></a>
+              <a href="#" class="social-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg></a>
+              <a href="#" class="social-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"/></svg></a>
+            </div>
+          </div>
+          <div class="footer-col">
+            <h4>Quick Links</h4>
+            <ul>
+              <li><a href="index.html">Home</a></li>
+              <li><a href="about.html">About Us</a></li>
+              <li><a href="products.html">Our Menu</a></li>
+              <li><a href="index.html#watch-area">Watch Area</a></li>
+              <li><a href="contact.html">Contact</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>Contact & Hours</h4>
+            <ul class="contact-list">
+              <li>📍 42, MG Road, Bengaluru, Karnataka 560001</li>
+              <li>📞 +91 98765 43210</li>
+              <li>✉️ hello@brewandshots.in</li>
+            </ul>
+            <div class="hours">
+              <div class="hour-row"><span>Mon – Thu</span><span>8 AM – 1 AM</span></div>
+              <div class="hour-row"><span>Fri – Sat</span><span>8 AM – 3 AM</span></div>
+              <div class="hour-row"><span>Sunday</span><span>10 AM – 12 AM</span></div>
+            </div>
+          </div>
+          <div class="footer-col">
+            <h4>Newsletter</h4>
+            <p>Get exclusive offers, event updates, and new menu launches.</p>
+            <form class="newsletter-form" onsubmit="subscribeNewsletter(event)">
+              <input type="email" placeholder="Your email address" required />
+              <button type="submit" class="btn btn-gold btn-sm">Subscribe</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="container">
+        <p>© 2025 Brew & Shots. All rights reserved. Crafted with ☕ & 🥃 in Bengaluru.</p>
+        <div class="footer-bottom-links">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- CART SIDEBAR -->
+  <div class="cart-overlay" id="cartOverlay" onclick="toggleCart()"></div>
+  <div class="cart-sidebar" id="cartSidebar">
+    <div class="cart-header">
+      <h3>Your Order</h3>
+      <button class="cart-close" onclick="toggleCart()">✕</button>
+    </div>
+    <div class="cart-items" id="cartItems">
+      <div class="cart-empty" id="cartEmpty">
+        <div class="empty-icon">🛒</div>
+        <p>Your cart is empty</p>
+        <a href="products.html" class="btn btn-gold btn-sm" onclick="toggleCart()">Browse Menu</a>
+      </div>
+    </div>
+    <div class="cart-footer" id="cartFooter" style="display:none">
+      <div class="cart-summary">
+        <div class="summary-row"><span>Subtotal</span><span id="cartSubtotal">₹0</span></div>
+        <div class="summary-row"><span>Taxes (5%)</span><span id="cartTax">₹0</span></div>
+        <div class="summary-row total"><span>Total</span><span id="cartTotal">₹0</span></div>
+      </div>
+      <button class="btn btn-gold btn-full" onclick="openCheckout()">Proceed to Checkout</button>
+      <button class="btn btn-outline btn-full" onclick="clearCart()">Clear Cart</button>
+    </div>
+  </div>
+
+  <!-- CHECKOUT MODAL -->
+  <div class="modal-overlay" id="checkoutOverlay">
+    <div class="modal checkout-modal glass">
+      <button class="modal-close" onclick="closeCheckout()">✕</button>
+      <h2>Complete Your Order</h2>
+      <p class="modal-subtitle">Fill in your details and we'll get it ready for you.</p>
+      <form class="checkout-form" id="checkoutForm" onsubmit="submitOrder(event)">
+        <div class="form-row">
+          <div class="form-group">
+            <input type="text" id="fullName" placeholder=" " required />
+            <label>Full Name *</label>
+          </div>
+          <div class="form-group">
+            <input type="tel" id="mobile" placeholder=" " required pattern="[0-9]{10}" />
+            <label>Mobile Number *</label>
+          </div>
+        </div>
+        <div class="form-group">
+          <input type="email" id="email" placeholder=" " required />
+          <label>Email Address *</label>
+        </div>
+        <div class="form-group">
+          <textarea id="address" placeholder=" " rows="2" required></textarea>
+          <label>Delivery Address *</label>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <input type="date" id="bookingDate" placeholder=" " required />
+            <label>Date *</label>
+          </div>
+          <div class="form-group">
+            <input type="time" id="bookingTime" placeholder=" " required />
+            <label>Time *</label>
+          </div>
+        </div>
+        <div class="form-group">
+          <textarea id="specialMessage" placeholder=" " rows="2"></textarea>
+          <label>Special Instructions</label>
+        </div>
+        <div class="order-summary-box glass">
+          <h4>Order Summary</h4>
+          <div id="checkoutItems"></div>
+          <div class="summary-total">Total: <strong id="checkoutTotal">₹0</strong></div>
+        </div>
+        <button type="submit" class="btn btn-gold btn-full" id="submitBtn">
+          <span>Place Order</span>
+          <div class="btn-loader" style="display:none"></div>
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <div class="toast" id="toast"></div>
+  <button class="back-to-top" id="backToTop" onclick="scrollToTop()">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="18 15 12 9 6 15"/></svg>
+  </button>
+
+  <script src="script.js"></script>
+</body>
+</html>
